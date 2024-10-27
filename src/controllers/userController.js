@@ -11,12 +11,13 @@ const register = async (req, res) => {
 };
 
 const login = async (req, res) => {
+    const { name, password } = req.body;
     try {
-        const { name, password } = req.body;
         const token = await userService.loginUser(name, password);
         res.status(200).json({ message: 'Login successful', token });
-    } catch (err) {
-        res.status(401).json({ error: err.message });
+    } catch (error) {
+        console.error('Login error:', error);
+        res.status(401).json({ message: error.message });
     }
 };
 

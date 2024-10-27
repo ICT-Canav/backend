@@ -1,4 +1,4 @@
-const db = require('../config/db');
+const { connection } = require('../config/db');
 
 // 사용자 ID로 컨설팅 목록 조회
 const getConsultingListByUserId = (userId) => {
@@ -8,7 +8,7 @@ const getConsultingListByUserId = (userId) => {
         WHERE userId = ?
     `;
     return new Promise((resolve, reject) => {
-        db.query(query, [userId], (err, results) => {
+        connection.query(query, [userId], (err, results) => {
             if (err) return reject(err);
             resolve(results);
         });
@@ -19,7 +19,7 @@ const getConsultingListByUserId = (userId) => {
 const getConsultingDetailById = (consultingId) => {
     const query = `SELECT id, type, content FROM Consulting WHERE id = ?`;
     return new Promise((resolve, reject) => {
-        db.query(query, [consultingId], (err, results) => {
+        connection.query(query, [consultingId], (err, results) => {
             if (err) return reject(err);
             if (results.length === 0) return reject(new Error('Consulting not found'));
             resolve(results[0]);
@@ -33,7 +33,7 @@ const insertConsultingInputData = (consultingInputData) => {
     const values = consultingInputData.map((data) => [data.type, data.content, data.userId]);
 
     return new Promise((resolve, reject) => {
-        db.query(query, [values], (err, results) => {
+        connection.query(query, [values], (err, results) => {
             if (err) return reject(err);
             resolve(results);
         });

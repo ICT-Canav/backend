@@ -5,8 +5,8 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const { connection, syncDatabase } = require('./config/db');
 
-import userRoute from './routes/userRoute.js';
-import consultingRoute from './routes/consultingRoute.js';
+const userRoute = require('./routes/userRoute.js');
+const consultingRoute = require('./routes/consultingRoute.js');
 
 dotenv.config();
 
