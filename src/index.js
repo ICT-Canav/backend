@@ -5,6 +5,9 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const { connection, syncDatabase } = require('./config/db');
 
+import userRoute from './routes/userRoute.js';
+import consultingRoute from './routes/consultingRoute.js';
+
 dotenv.config();
 
 // 앱 생성
@@ -24,6 +27,8 @@ syncDatabase();
 app.get('/', (req, res) => {
     res.send('test');
 });
+app.use('/', userRoute);
+app.use('/consulting', consultingRoute);
 
 // 서버 실행
 connection.connect((err) => {
