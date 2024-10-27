@@ -1,0 +1,21 @@
+const createConsultingTable = (connection) => {
+    const createConsultingTableQuery = `
+        CREATE TABLE IF NOT EXISTS Consulting (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            type ENUM('진학', '진로', '취업') NOT NULL,
+            content CHAR(255) NOT NULL,
+            userId INT,
+            FOREIGN KEY (userId) REFERENCES User(id) ON DELETE CASCADE
+        );
+    `;
+
+    connection.query(createConsultingTableQuery, (err, results) => {
+        if (err) {
+            console.error('Error creating Consulting table:', err);
+            return;
+        }
+        console.log('Consulting table checked/created:', results);
+    });
+};
+
+module.exports = { createConsultingTable };
