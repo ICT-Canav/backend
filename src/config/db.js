@@ -2,6 +2,7 @@ const mysql = require('mysql2');
 const dotenv = require('dotenv');
 const { createUserTable } = require('../models/userModel');
 const { createConsultingTable } = require('../models/consultingModel');
+const { createConsultingInputTable } = require('../models/consultingInputModel');
 
 dotenv.config();
 
@@ -30,6 +31,7 @@ const syncDatabase = () => {
 
             createUserTable(connection);
             createConsultingTable(connection);
+            createConsultingInputTable(connection);
         });
     });
 };
