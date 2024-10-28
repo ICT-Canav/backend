@@ -1,3 +1,4 @@
+//유저 테이블
 const createUserTable = (connection) => {
     const createUserTableQuery = `
         CREATE TABLE IF NOT EXISTS User (

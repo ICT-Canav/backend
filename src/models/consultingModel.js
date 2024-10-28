@@ -1,3 +1,4 @@
+//컨설팅 결과 저장 테이블
 const createConsultingTable = (connection) => {
     const createConsultingTableQuery = `
         CREATE TABLE IF NOT EXISTS Consulting (

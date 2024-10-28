@@ -27,7 +27,7 @@ const getConsultingDetailById = (consultingId) => {
     });
 };
 
-// 여러 개의 입력 컨설팅 데이터를 삽입하는 함수
+// 컨설팅 데이터를 삽입하는 함수
 const insertConsultingInputData = (consultingInputData) => {
     const query = `INSERT INTO ConsultingInput (type, content, userId) VALUES ?`;
     const values = consultingInputData.map((data) => [data.type, data.content, data.userId]);

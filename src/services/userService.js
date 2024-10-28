@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 const { connection } = require('../config/db'); // DB 연결 파일
 const saltRounds = 10;
 
+// 회원가입
 const registerUser = async (name, password) => {
     const hashedPassword = await bcrypt.hash(password, saltRounds);
     const query = 'INSERT INTO User (name, password) VALUES (?, ?)';
@@ -20,6 +21,7 @@ const registerUser = async (name, password) => {
     });
 };
 
+// 로그인
 const loginUser = async (name, password) => {
     const query = 'SELECT * FROM User WHERE name = ?';
     return new Promise((resolve, reject) => {

@@ -1,3 +1,4 @@
+//컨설팅 정보 입력 테이블
 const createConsultingInputTable = (connection) => {
     const createConsultingInputTableQuery = `
         CREATE TABLE IF NOT EXISTS ConsultingInput (

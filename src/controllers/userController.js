@@ -1,5 +1,6 @@
 const userService = require('../services/userService');
 
+//회원가입
 const register = async (req, res) => {
     try {
         const { name, password } = req.body;
@@ -10,6 +11,7 @@ const register = async (req, res) => {
     }
 };
 
+//로그인
 const login = async (req, res) => {
     const { name, password } = req.body;
     try {
