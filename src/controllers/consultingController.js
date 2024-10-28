@@ -22,7 +22,7 @@ const getConsultingDetail = async (req, res) => {
     }
 };
 
-// 컨트롤러를 async로 정의하여 비동기 함수 사용
+// 컨설팅 내용 데이터베이스 추가
 const uploadConsultingData = async (req, res) => {
     const inputData = req.body;
 
