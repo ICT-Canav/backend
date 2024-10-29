@@ -11,6 +11,7 @@
   "license": "ISC",
   "description": "카네비 백엔드",
   "dependencies": {
+    "@google/generative-ai": "^0.21.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^2.0.1",
     "cors": "^2.8.5",

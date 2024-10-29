@@ -17,6 +17,8 @@ const port = 8000;
 // 미들웨어 설정
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // 데이터베이스 동기화
 syncDatabase();

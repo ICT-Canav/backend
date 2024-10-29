@@ -4,8 +4,9 @@ const createConsultingTable = (connection) => {
         CREATE TABLE IF NOT EXISTS Consulting (
             id INT AUTO_INCREMENT PRIMARY KEY,
             type ENUM('진학', '진로', '취업') NOT NULL,
-            content CHAR(255) NOT NULL,
+            text TEXT,
             userId INT,
+            createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (userId) REFERENCES User(id) ON DELETE CASCADE
         );
     `;
